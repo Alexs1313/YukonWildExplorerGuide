@@ -1083,6 +1083,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 6,
     lineHeight: 16,
+    flexShrink: 1,
+    width: '90%',
   },
 
   yknwldexplorerguidPrimaryBtn: {
@@ -1260,6 +1262,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 1,
     borderColor: '#C9A84C',
+    overflow: 'hidden',
   },
   yknwldexplorerguidResultAvatar: {
     width: 112,

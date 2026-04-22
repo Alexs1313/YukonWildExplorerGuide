@@ -200,7 +200,7 @@ const Yknwldexplorerguiddeexpl = () => {
                       source={require('../../assets/i/yknwldexplocsall.png')}
                     />
                   ) : (
-                    <Text style={{fontSize: 24, marginBottom: 6}}>
+                    <Text style={{fontSize: 24, marginBottom: 4}}>
                       {yknwldexplorerguidGetCatEmoji(cat)}
                     </Text>
                   )}
@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
     width: 122,
     height: 112,
     borderRadius: 18,
-    padding: 12,
+    padding: 10,
     borderWidth: 1,
     justifyContent: 'flex-end',
     overflow: 'hidden',
@@ -387,10 +387,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   yknwldexplorerguidCatTitle: {fontSize: 11, fontWeight: '700'},
-  yknwldexplorerguidCatTitleActive: {color: '#FFFFFF'},
+  yknwldexplorerguidCatTitleActive: {color: '#FFFFFF', fontSize: 11},
   yknwldexplorerguidCatTitleIdle: {color: '#FFFFFFCC'},
   yknwldexplorerguidCatSpots: {marginTop: 3, fontSize: 12, fontWeight: '500'},
-  yknwldexplorerguidCatSpotsActive: {color: '#FFFFFFCC'},
+  yknwldexplorerguidCatSpotsActive: {color: '#FFFFFFCC', fontSize: 11},
   yknwldexplorerguidCatSpotsIdle: {color: '#FFFFFF66'},
 
   yknwldexplorerguidListCount: {

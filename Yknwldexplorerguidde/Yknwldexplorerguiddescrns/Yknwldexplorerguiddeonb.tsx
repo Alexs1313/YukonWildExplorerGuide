@@ -120,6 +120,7 @@ const Yknwldexplorerguiddeonb = () => {
               borderRadius: 500,
               borderWidth: 1,
               borderColor: '#C9A84C',
+              overflow: 'hidden',
             }}>
             <Image
               source={

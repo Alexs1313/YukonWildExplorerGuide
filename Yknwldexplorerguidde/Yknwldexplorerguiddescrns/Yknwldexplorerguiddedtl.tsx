@@ -7,6 +7,7 @@ import {useEffect, useMemo, useState} from 'react';
 import {
   Image,
   ImageBackground,
+  ScrollView,
   Share,
   StyleSheet,
   Text,
@@ -112,135 +113,141 @@ const Yknwldexplorerguiddedtl = () => {
 
   return (
     <View style={styles.yknwldexplorerguidRoot}>
-      <ImageBackground
-        source={(yknwldexplorerguidPlace.image as never) ?? undefined}
-        style={styles.yknwldexplorerguidHero}
-        resizeMode="cover">
-        <LinearGradient
-          colors={['#0F0C1D00', '#0F0C1DEE', '#0F0C1D']}
-          style={{
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            bottom: 0,
-            height: 120,
-          }}
-        />
-
-        <TouchableOpacity
-          activeOpacity={0.9}
-          onPress={() => navigation.goBack()}
-          style={styles.yknwldexplorerguidBackBtn}>
-          <Image source={require('../../assets/i/yknwldexplorbak.png')} />
-        </TouchableOpacity>
-
-        <View style={styles.yknwldexplorerguidChip}>
-          <Text style={styles.yknwldexplorerguidChipText}>
-            {yknwldexplorerguidPlace.category}
-          </Text>
-        </View>
-
-        <View style={styles.yknwldexplorerguidHeroBottom}>
-          <Text style={styles.yknwldexplorerguidTitle}>
-            {yknwldexplorerguidPlace.title}
-          </Text>
-        </View>
-      </ImageBackground>
-
-      <View style={styles.yknwldexplorerguidBody}>
-        <View style={styles.yknwldexplorerguidCoordsCard}>
-          <View style={styles.yknwldexplorerguidCoordsRow}>
-            <Image
-              source={require('../../assets/i/yknwldexplorcoord.png')}
-              style={{width: 18, height: 18}}
-            />
-            <Text style={styles.yknwldexplorerguidCoordsLabel}>
-              COORDINATES
-            </Text>
-          </View>
-          <Text style={styles.yknwldexplorerguidCoordsValue}>
-            {yknwldexplorerguidFormatCoords(
-              yknwldexplorerguidPlace.coordinates.lat,
-              yknwldexplorerguidPlace.coordinates.lng,
-            )}
-          </Text>
-        </View>
-
-        <View style={{paddingHorizontal: 10}}>
-          <Text style={styles.yknwldexplorerguidSectionKicker}>ABOUT</Text>
-          <Text style={styles.yknwldexplorerguidAbout}>
-            {yknwldexplorerguidPlace.description}
-          </Text>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{flexGrow: 1}}>
+        <ImageBackground
+          source={(yknwldexplorerguidPlace.image as never) ?? undefined}
+          style={styles.yknwldexplorerguidHero}
+          resizeMode="cover">
+          <LinearGradient
+            colors={['#0F0C1D00', '#0F0C1DEE', '#0F0C1D']}
+            style={{
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              bottom: 0,
+              height: 120,
+            }}
+          />
 
           <TouchableOpacity
             activeOpacity={0.9}
-            onPress={yknwldexplorerguidOpenOnMap}
-            style={styles.yknwldexplorerguidMapBtnWrap}>
-            <LinearGradient
-              colors={['#00AA4F', '#007A38']}
-              style={styles.yknwldexplorerguidMapBtn}>
-              <Image source={require('../../assets/i/yknwldexploopma.png')} />
-              <Text style={styles.yknwldexplorerguidMapBtnText}>
-                Open on Map
-              </Text>
-            </LinearGradient>
+            onPress={() => navigation.goBack()}
+            style={styles.yknwldexplorerguidBackBtn}>
+            <Image source={require('../../assets/i/yknwldexplorbak.png')} />
           </TouchableOpacity>
 
-          <View style={styles.yknwldexplorerguidBottomRow}>
+          <View style={styles.yknwldexplorerguidChip}>
+            <Text style={styles.yknwldexplorerguidChipText}>
+              {yknwldexplorerguidPlace.category}
+            </Text>
+          </View>
+
+          <View style={styles.yknwldexplorerguidHeroBottom}>
+            <Text style={styles.yknwldexplorerguidTitle}>
+              {yknwldexplorerguidPlace.title}
+            </Text>
+          </View>
+        </ImageBackground>
+
+        <View style={styles.yknwldexplorerguidBody}>
+          <View style={styles.yknwldexplorerguidCoordsCard}>
+            <View style={styles.yknwldexplorerguidCoordsRow}>
+              <Image
+                source={require('../../assets/i/yknwldexplorcoord.png')}
+                style={{width: 18, height: 18}}
+              />
+              <Text style={styles.yknwldexplorerguidCoordsLabel}>
+                COORDINATES
+              </Text>
+            </View>
+            <Text style={styles.yknwldexplorerguidCoordsValue}>
+              {yknwldexplorerguidFormatCoords(
+                yknwldexplorerguidPlace.coordinates.lat,
+                yknwldexplorerguidPlace.coordinates.lng,
+              )}
+            </Text>
+          </View>
+
+          <View style={{paddingHorizontal: 10}}>
+            <Text style={styles.yknwldexplorerguidSectionKicker}>ABOUT</Text>
+            <Text style={styles.yknwldexplorerguidAbout}>
+              {yknwldexplorerguidPlace.description}
+            </Text>
+
             <TouchableOpacity
               activeOpacity={0.9}
-              onPress={yknwldexplorerguidToggleSave}
-              style={styles.yknwldexplorerguidHalfBtnWrap}>
+              onPress={yknwldexplorerguidOpenOnMap}
+              style={styles.yknwldexplorerguidMapBtnWrap}>
               <LinearGradient
-                colors={
-                  yknwldexplorerguidSaved
-                    ? ['#C9A84C33', '#C9A84C33']
-                    : ['#2F286180', '#2F286180']
-                }
-                start={{x: 0, y: 0}}
-                end={{x: 1, y: 0}}
-                style={[
-                  styles.yknwldexplorerguidHalfBtn,
-                  yknwldexplorerguidSaved
-                    ? styles.yknwldexplorerguidHalfBtnActive
-                    : styles.yknwldexplorerguidHalfBtnIdle,
-                ]}>
-                <Image
-                  source={
-                    yknwldexplorerguidSaved
-                      ? require('../../assets/i/yknwldexplorcsaved.png')
-                      : require('../../assets/i/yknwldexplorsv.png')
-                  }
-                />
-                <Text
-                  style={[
-                    styles.yknwldexplorerguidHalfBtnText,
-                    yknwldexplorerguidSaved && {color: '#C9A84C'},
-                  ]}>
-                  {yknwldexplorerguidSaved ? 'Saved' : 'Save'}
+                colors={['#00AA4F', '#007A38']}
+                style={styles.yknwldexplorerguidMapBtn}>
+                <Image source={require('../../assets/i/yknwldexploopma.png')} />
+                <Text style={styles.yknwldexplorerguidMapBtnText}>
+                  Open on Map
                 </Text>
               </LinearGradient>
             </TouchableOpacity>
 
-            <TouchableOpacity
-              activeOpacity={0.9}
-              onPress={yknwldexplorerguidShare}
-              style={styles.yknwldexplorerguidHalfBtnWrap}>
-              <LinearGradient
-                colors={['#2F286180', '#2F286180']}
-                start={{x: 0, y: 0}}
-                end={{x: 1, y: 0}}
-                style={[
-                  styles.yknwldexplorerguidHalfBtn,
-                  styles.yknwldexplorerguidHalfBtnIdle,
-                ]}>
-                <Image source={require('../../assets/i/yknwldexplshr.png')} />
-                <Text style={styles.yknwldexplorerguidHalfBtnText}>Share</Text>
-              </LinearGradient>
-            </TouchableOpacity>
+            <View style={styles.yknwldexplorerguidBottomRow}>
+              <TouchableOpacity
+                activeOpacity={0.9}
+                onPress={yknwldexplorerguidToggleSave}
+                style={styles.yknwldexplorerguidHalfBtnWrap}>
+                <LinearGradient
+                  colors={
+                    yknwldexplorerguidSaved
+                      ? ['#C9A84C33', '#C9A84C33']
+                      : ['#2F286180', '#2F286180']
+                  }
+                  start={{x: 0, y: 0}}
+                  end={{x: 1, y: 0}}
+                  style={[
+                    styles.yknwldexplorerguidHalfBtn,
+                    yknwldexplorerguidSaved
+                      ? styles.yknwldexplorerguidHalfBtnActive
+                      : styles.yknwldexplorerguidHalfBtnIdle,
+                  ]}>
+                  <Image
+                    source={
+                      yknwldexplorerguidSaved
+                        ? require('../../assets/i/yknwldexplorcsaved.png')
+                        : require('../../assets/i/yknwldexplorsv.png')
+                    }
+                  />
+                  <Text
+                    style={[
+                      styles.yknwldexplorerguidHalfBtnText,
+                      yknwldexplorerguidSaved && {color: '#C9A84C'},
+                    ]}>
+                    {yknwldexplorerguidSaved ? 'Saved' : 'Save'}
+                  </Text>
+                </LinearGradient>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                activeOpacity={0.9}
+                onPress={yknwldexplorerguidShare}
+                style={styles.yknwldexplorerguidHalfBtnWrap}>
+                <LinearGradient
+                  colors={['#2F286180', '#2F286180']}
+                  start={{x: 0, y: 0}}
+                  end={{x: 1, y: 0}}
+                  style={[
+                    styles.yknwldexplorerguidHalfBtn,
+                    styles.yknwldexplorerguidHalfBtnIdle,
+                  ]}>
+                  <Image source={require('../../assets/i/yknwldexplshr.png')} />
+                  <Text style={styles.yknwldexplorerguidHalfBtnText}>
+                    Share
+                  </Text>
+                </LinearGradient>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 };

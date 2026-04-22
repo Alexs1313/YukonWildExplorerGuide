@@ -115,6 +115,7 @@ const Yknwldexplorerguiddesvd = () => {
                 borderRadius: 500,
                 borderWidth: 1,
                 borderColor: '#C9A84C',
+                overflow: 'hidden',
               }}>
               <Image
                 source={require('../../assets/i/yknwldexploroim3.png')}

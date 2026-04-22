@@ -99,6 +99,11 @@ const Yknwldexplorerguiddemap = () => {
   const [yknwldexplorerguidSelected, setYknwldexplorerguidSelected] =
     useState<YknwldexplorerguidPlace | null>(null);
 
+  const [
+    yknwldexplorerguidTracksViewChanges,
+    setYknwldexplorerguidTracksViewChanges,
+  ] = useState(Platform.OS === 'android');
+
   const yknwldexplorerguidPlaceIdFromParams = (
     route.params as YknwldexplorerguidRouteParams | undefined
   )?.yknwldexplorerguidPlaceId;
@@ -120,6 +125,16 @@ const Yknwldexplorerguiddemap = () => {
         clearTimeout(yknwldexplorerguidMapPressGuardTimerRef.current);
       }
     };
+  }, []);
+
+  useEffect(() => {
+    if (Platform.OS !== 'android') {
+      return;
+    }
+    const t = setTimeout(() => {
+      setYknwldexplorerguidTracksViewChanges(false);
+    }, 900);
+    return () => clearTimeout(t);
   }, []);
 
   useEffect(() => {
@@ -234,7 +249,7 @@ const Yknwldexplorerguiddemap = () => {
                 latitude: place.coordinates.lat,
                 longitude: place.coordinates.lng,
               }}
-              tracksViewChanges={false}
+              tracksViewChanges={yknwldexplorerguidTracksViewChanges}
               onPress={() => {
                 yknwldexplorerguidArmMapPressGuard();
                 setYknwldexplorerguidSelected(place);
@@ -412,7 +427,7 @@ const styles = StyleSheet.create({
 
   yknwldexplorerguidLegend: {
     position: 'absolute',
-    left: 18,
+    left: 14,
     borderRadius: 16,
     paddingVertical: 12,
     paddingHorizontal: 12,
@@ -497,7 +512,7 @@ const styles = StyleSheet.create({
 
   yknwldexplorerguidHintPill: {
     position: 'absolute',
-    right: 18,
+    right: 14,
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: 999,
@@ -524,6 +539,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#1E1A3ACC',
     borderWidth: 1,
     borderColor: '#FFFFFF12',
+    zIndex: 100,
+    left: 10,
   },
   yknwldexplorerguidPreviewClose: {
     position: 'absolute',

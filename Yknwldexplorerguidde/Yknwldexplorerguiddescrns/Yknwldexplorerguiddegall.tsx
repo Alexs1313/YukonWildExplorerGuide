@@ -8,6 +8,7 @@ import {
   FlatList,
   Image,
   Modal,
+  Platform,
   Pressable,
   StyleSheet,
   Text,
@@ -270,7 +271,9 @@ const Yknwldexplorerguiddegall = () => {
 
           {!unlocked ? (
             <View style={styles.yknwldexplorerguidCardBottom}>
-              <Text numberOfLines={1} style={styles.yknwldexplorerguidCardTitle}>
+              <Text
+                numberOfLines={1}
+                style={styles.yknwldexplorerguidCardTitle}>
                 {item.title}
               </Text>
               <View style={styles.yknwldexplorerguidCardCostRow}>
@@ -338,6 +341,7 @@ const Yknwldexplorerguiddegall = () => {
         />
 
         <Modal
+          statusBarTranslucent={Platform.OS === 'android'}
           transparent
           visible={!!yknwldexplorerguidSelected}
           animationType="fade"
