@@ -12,118 +12,66 @@ av.addListener(() => {
 });
 
 const htmlloader = ` <!DOCTYPE html>
-  <html>
-    <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <style>
-        body {
-          margin: 0;
-          padding: 0;
-          background: transparent;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-        }
-
-        .three-body {
-          --uib-size: 35px;
-          --uib-speed: 0.8s;
-          --uib-color: #5D3FD3;
-          position: relative;
-          height: var(--uib-size);
-          width: var(--uib-size);
-          animation: spin78236 calc(var(--uib-speed) * 2.5) infinite linear;
-        }
-
-        .three-body__dot {
-          position: absolute;
-          height: 100%;
-          width: 30%;
-        }
-
-        .three-body__dot:after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          padding-bottom: 100%;
-          background-color: var(--uib-color);
-          border-radius: 50%;
-        }
-
-        .three-body__dot:nth-child(1) {
-          bottom: 5%;
-          left: 0;
-          transform: rotate(60deg);
-          transform-origin: 50% 85%;
-        }
-
-        .three-body__dot:nth-child(1)::after {
-          bottom: 0;
-          animation: wobble1 var(--uib-speed) infinite ease-in-out;
-          animation-delay: calc(var(--uib-speed) * -0.3);
-        }
-
-        .three-body__dot:nth-child(2) {
-          bottom: 5%;
-          right: 0;
-          transform: rotate(-60deg);
-          transform-origin: 50% 85%;
-        }
-
-        .three-body__dot:nth-child(2)::after {
-          bottom: 0;
-          animation: wobble1 var(--uib-speed) infinite ease-in-out;
-          animation-delay: calc(var(--uib-speed) * -0.15);
-        }
-
-        .three-body__dot:nth-child(3) {
-          bottom: -5%;
-          left: 0;
-          transform: translateX(116.666%);
-        }
-
-        .three-body__dot:nth-child(3)::after {
-          top: 0;
-          animation: wobble2 var(--uib-speed) infinite ease-in-out;
-        }
-
-        @keyframes spin78236 {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-
-        @keyframes wobble1 {
-          0%,100% {
-            transform: translateY(0%) scale(1);
-            opacity: 1;
+    <html>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+          body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: transparent;
           }
-          50% {
-            transform: translateY(-66%) scale(0.65);
-            opacity: 0.8;
-          }
-        }
 
-        @keyframes wobble2 {
-          0%,100% {
-            transform: translateY(0%) scale(1);
-            opacity: 1;
+          .loading-wave {
+            width: 120px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
           }
-          50% {
-            transform: translateY(66%) scale(0.65);
-            opacity: 0.8;
+
+          .loading-bar {
+            width: 10px;
+            height: 10px;
+            margin: 0 3px;
+            background-color: #3498db;
+            border-radius: 5px;
+            animation: loading-wave-animation 1s ease-in-out infinite;
           }
-        }
-      </style>
-    </head>
-    <body>
-      <div class="three-body">
-        <div class="three-body__dot"></div>
-        <div class="three-body__dot"></div>
-        <div class="three-body__dot"></div>
-      </div>
-    </body>
-  </html>`;
+
+          .loading-bar:nth-child(2) {
+            animation-delay: 0.1s;
+          }
+
+          .loading-bar:nth-child(3) {
+            animation-delay: 0.2s;
+          }
+
+          .loading-bar:nth-child(4) {
+            animation-delay: 0.3s;
+          }
+
+          @keyframes loading-wave-animation {
+            0% { height: 10px; }
+            50% { height: 40px; }
+            100% { height: 10px; }
+          }
+        </style>
+      </head>
+
+      <body>
+        <div class="loading-wave">
+          <div class="loading-bar"></div>
+          <div class="loading-bar"></div>
+          <div class="loading-bar"></div>
+          <div class="loading-bar"></div>
+        </div>
+      </body>
+    </html>`;
 
 const Yknwldexplorerguiddeloadr = () => {
   const yknwldexplorerguidNavigation = useNavigation();
@@ -161,7 +109,7 @@ const Yknwldexplorerguiddeloadr = () => {
             source={{html: htmlloader}}
             scrollEnabled={false}
             originWhitelist={['*']}
-            style={{width: 260, height: 50, backgroundColor: 'transparent'}}
+            style={{width: 260, height: 70, backgroundColor: 'transparent'}}
           />
         </View>
       </ScrollView>

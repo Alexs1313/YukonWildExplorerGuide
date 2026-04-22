@@ -1,4 +1,4 @@
-package com.yukonwildexplorerguide
+package com.yukonhold.wild.guide
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

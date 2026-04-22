@@ -907,7 +907,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
     paddingTop: 70,
     paddingBottom: 110,
-    backgroundColor: 'rgba(15, 12, 29, 0.72)',
   },
 
   yknwldexplorerguidHeader: {

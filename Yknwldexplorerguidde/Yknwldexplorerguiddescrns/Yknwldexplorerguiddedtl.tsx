@@ -112,7 +112,9 @@ const Yknwldexplorerguiddedtl = () => {
   }
 
   return (
-    <View style={styles.yknwldexplorerguidRoot}>
+    <LinearGradient
+      colors={['rgb(27, 18, 59)', 'rgb(7, 5, 19)']}
+      style={styles.yknwldexplorerguidRoot}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{flexGrow: 1}}>
@@ -248,7 +250,7 @@ const Yknwldexplorerguiddedtl = () => {
           </View>
         </View>
       </ScrollView>
-    </View>
+    </LinearGradient>
   );
 };
 

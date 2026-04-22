@@ -66,7 +66,7 @@ const Yknwldexplorerguiddeonb = () => {
 
   return (
     <ImageBackground
-      source={require('../../assets/i/yknwldexploronbg1.png')}
+      source={require('../../assets/i/yknwldexploronbg2.png')}
       style={{flex: 1}}>
       <ScrollView
         contentContainerStyle={{flexGrow: 1}}

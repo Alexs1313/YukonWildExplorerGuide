@@ -1,5 +1,6 @@
 import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 const Yknwldexplorerguiddelay = ({
   children,
@@ -10,14 +11,16 @@ const Yknwldexplorerguiddelay = ({
   bounces?: boolean;
 }) => {
   return (
-    <View style={styles.cozyrabtteacorneercontainer}>
+    <LinearGradient
+      colors={['rgb(42, 29, 91)', 'rgb(7, 5, 19)']}
+      style={styles.cozyrabtteacorneercontainer}>
       <ScrollView
         bounces={bounces}
         contentContainerStyle={styles.cozyrabtteacorneerscrollContent}
         showsVerticalScrollIndicator={false}>
         {children}
       </ScrollView>
-    </View>
+    </LinearGradient>
   );
 };
 

@@ -1,4 +1,4 @@
-package com.yukonwildexplorerguide
+package com.yukonhold.wild.guide
 
 import android.app.Application
 import com.facebook.react.PackageList
